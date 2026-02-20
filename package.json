@@ -1,0 +1,24 @@
+{
+  "name": "promptcraft",
+  "version": "1.0.0",
+  "description": "lyk的超级提示词工程 2026",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace=@promptcraft/server",
+    "dev:client": "npm run dev --workspace=@promptcraft/client",
+    "build": "npm run build:server && npm run build:client && npm run build:electron",
+    "build:server": "npm run build --workspace=@promptcraft/server",
+    "build:client": "npm run build --workspace=@promptcraft/client",
+    "build:electron": "npm run build --workspace=@promptcraft/electron",
+    "start": "npm run start --workspace=@promptcraft/server",
+    "dist": "npm run build && npm run dist --workspace=@promptcraft/electron",
+    "pack": "npm run build && npm run pack --workspace=@promptcraft/electron"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
